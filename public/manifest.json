@@ -1,6 +1,6 @@
 {
-  "name": "chatroom",
-  "short_name": "chatroom",
+  "name": "Chatroom",
+  "short_name": "Chatroom",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

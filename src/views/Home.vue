@@ -1,18 +1,21 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  .home
+    messages-container
+    message-typer
+    modal-username-room
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import MessagesContainer from '../components/MessagesContainer.vue'
+import MessageTyper from '../components/MessageTyper.vue'
+import ModalUsernameRoom from '../components/ModalUsernameRoom.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
-  }
+    "messages-container": MessagesContainer,
+    "message-typer": MessageTyper,
+    "modal-username-room": ModalUsernameRoom,
+  },
 }
 </script>
