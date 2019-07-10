@@ -1,45 +1,82 @@
 <template lang="pug">
-  .MessageDisplay
-    span.username {{message.username}}:
-    div
-      .message {{message.text}}
+	.MessageDisplay(:class="{fromUser}")
+		span.username {{message.username}}:
+		div
+			.message(@click="toggleShowTime") {{message.text}}
+			transition(name="slide")
+				div.time(v-if="showTime")
+					span {{localeTime}}
 </template>
 
 <script>
 export default {
-  name: "MessageDisplay",
-  props: {
-    message: Object
-  }
+	name: "MessageDisplay",
+	data: () => ({
+		showTime: false,
+	}),
+	props: {
+		message: Object
+	},
+	computed: {
+		fromUser(){
+			return this.message.username === this.$store.state.username
+		},
+		localeTime(){
+			return this.message.time.toLocaleTimeString()
+		},
+	},
+	methods: {
+		toggleShowTime(){
+			this.showTime = !this.showTime
+		},
+	},
 }
 </script>
 
 <style lang="sass">
-  .MessageDisplay
-    margin: .5rem
+	.MessageDisplay
+		margin: .5rem
+		width: calc(100% - 1rem)
 
-    &:not(:last-child)
-      margin-bottom: 1.5rem
+		&:not(:last-child)
+			margin-bottom: 1.5rem
 
-    .username
-      font-size: .85rem
+		.username
+			font-size: .85rem
 
-    .message
-      min-height: 1.5rem
-      min-width: 5rem
-      max-width: 85vw
-      display: inline-block
-      padding: .5rem
-      border-radius: 1rem
-      margin-top: .25rem
+		.message
+			min-height: 1.5rem
+			min-width: 3rem
+			max-width: 85vw
+			display: inline-block
+			padding: .5rem .75rem
+			border-radius: 1rem
+			margin-top: .25rem
+			cursor: pointer
 
-    &.fromUser
-      float: right
-      text-align: right
+		&.fromUser
+			float: right
+			text-align: right
 
-      .message
-        background-color: #64c1ff
+			.message
+				background-color: #64c1ff
+				color: white
 
-    &:not(.fromUser) .message
-      background-color: #e6e6e6
+		&:not(.fromUser) .message
+			background-color: #e6e6e6
+	
+	.time
+		overflow: hidden
+	
+	.slide-enter-active,
+	.slide-leave-active
+		transition: height .25s cubic-bezier(0.4, 0, 0.2, 1)
+
+	.slide-enter,
+	.slide-leave-to
+		height: 0
+
+	.slide-leave,
+	.slide-enter-to
+		height: 1rem
 </style>
