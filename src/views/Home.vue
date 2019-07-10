@@ -2,7 +2,7 @@
   .home
     messages-container
     message-typer
-    modal-username-room
+    modal-username-room(v-if="$store.state.showModalUsernameRoom")
 </template>
 
 <script>

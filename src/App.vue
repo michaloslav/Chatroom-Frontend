@@ -12,6 +12,16 @@ export default {
   components: {
     "app-header": AppHeader,
   },
+  beforeCreate(){
+    if(
+      localStorage.username && 
+      localStorage.username !== "" && 
+      localStorage.room && 
+      localStorage.room !== ""
+    ) this.$store.dispatch("getMessages")
+
+    else this.$store.commit("setShowModalUsernameRoom", true)
+  },
 }
 </script>
 

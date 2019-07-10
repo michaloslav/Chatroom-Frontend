@@ -1,5 +1,5 @@
 <template lang="pug">
-  base-modal.ModalUsernameRoom(v-if="$store.state.showModalUsernameRoom" @close="close")
+  base-modal.ModalUsernameRoom(@close="close")
     table
       tbody
         tr
@@ -22,10 +22,10 @@ import BaseModal from './BaseModal.vue'
 
 export default {
   name: "ModalUsernameRoom",
-  data: () => ({
-    username: "",
-    room: "General",
-  }),
+  data(){
+    let {username, room} = this.$store.state
+    return {username, room}
+  },
   methods: {
     focusOnRoom(){
       if(this.username !== "") this.$refs.room.focus()
