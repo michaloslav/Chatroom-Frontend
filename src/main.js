@@ -6,7 +6,11 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
-Vue.directive('focus', { inserted: el => el.focus() })
+Vue.directive('focus', {
+  inserted: (el, condition = true) => {
+    if(condition) el.focus()
+  },
+})
 
 new Vue({
   router,

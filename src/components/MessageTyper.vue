@@ -1,6 +1,10 @@
 <template lang="pug">
   .MessageTyper
-    input(v-model="message" @keyup.enter="send")
+    input(
+      v-model="message"
+      @keyup.enter="send"
+      v-focus="!$store.state.showModalUsernameRoom"
+    )
     button(@click="send")
       i.fas.fa-paper-plane
 </template>
