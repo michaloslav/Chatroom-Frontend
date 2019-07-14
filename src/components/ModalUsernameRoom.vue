@@ -71,9 +71,10 @@ export default {
         outline: 0
     
     button
-      border: solid #a39dd6 2px
+      border: solid #005aff 2px
+      box-shadow: 0 0 5px -1px #0021ffa6
       border-radius: .5rem
-      padding: .25rem .5rem
+      padding: .35rem .75rem
       background-color: white
     
 </style>

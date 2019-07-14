@@ -45,5 +45,5 @@ export default {
       height: 100vh
       width: 100vw
       z-index: 99
-      background-color: #000000aa;
+      background-color: #000000aa
 </style>

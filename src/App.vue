@@ -28,7 +28,7 @@ export default {
 
 <style lang="sass">
   body
-    font-family: 'Nanum Gothic', sans-serif
+    font-family: 'Open Sans', sans-serif
     padding-top: 4rem
   
   .row

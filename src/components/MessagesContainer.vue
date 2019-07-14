@@ -18,9 +18,9 @@ export default {
 <style lang="sass">
   .MessagesContainer
     border: solid 1px #d2d2d2
-    border-radius: 1rem
+    border-radius: 1.5rem
     height: calc(100vh - 10rem)
-    box-shadow: 2px -7px 14px #d2d2d2e0
+    box-shadow: 1px 1px 14px #d2d2d2e0
     overflow: auto
     padding: .5rem
 </style>

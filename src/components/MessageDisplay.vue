@@ -1,8 +1,8 @@
 <template lang="pug">
 	.MessageDisplay(:class="{fromUser}")
-		span.username {{message.username}}:
-		div
-			.message(@click="toggleShowTime") {{message.text}}
+		span.username {{message.username}}
+		div(@click="toggleShowTime")
+			.message {{message.text}}
 			transition(name="slide")
 				div.time(v-if="showTime")
 					span {{localeTime}}
@@ -70,7 +70,7 @@ export default {
 	
 	.slide-enter-active,
 	.slide-leave-active
-		transition: height .25s cubic-bezier(0.4, 0, 0.2, 1)
+		transition: height .25s cubic-bezier(.75, .2, .2, .75)
 
 	.slide-enter,
 	.slide-leave-to

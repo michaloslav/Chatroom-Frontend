@@ -2,10 +2,13 @@
   header
     router-link.brand(to="/" tag="span") Chatroom
     .floatRight
-      span.usernameAndRoom(
+      div.usernameAndRoom(
         v-if="showUsernameAndRoom"
         @click="openModal"
-      ) {{$store.state.username}} | {{$store.state.room}}
+      )
+        span.username {{$store.state.username}}
+        span.separator  | 
+        span.room {{$store.state.room}}
       router-link.settings.fas.fa-cog(to="/settings" tag="i")
 </template>
 
@@ -31,7 +34,7 @@ export default {
     top: 0
     left: 0
     width: calc(100vw - 2rem)
-    background-color: #8375ff
+    background: linear-gradient(45deg, #9554ffd4, #9e62ffc7)
     padding: 1rem
 
     .brand, .settings
@@ -45,7 +48,13 @@ export default {
       float: right
 
       .usernameAndRoom
+        display: inline
         cursor: pointer
+
+        @media screen and (max-width: 375px)
+          .username, .separator
+            display: none
+
 
       .settings
         margin: 0 1rem
